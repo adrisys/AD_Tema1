@@ -3,16 +3,17 @@ package com.cantillana.Lienzo;
 
 import javafx.scene.canvas.GraphicsContext;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Escena{
+public class Escena implements Serializable {
     // tamaño de la escena
     private int tamX;
     private int tamY;
 
     //figuras que componen la escena
-    List<Figura> listaFiguras;
+    public List<Figura> listaFiguras;
 
     public Escena(){
         // Constructor. Por defecto escena de 800x600;

@@ -4,7 +4,9 @@ package com.cantillana.Lienzo;
 
 import javafx.scene.canvas.GraphicsContext;
 
-public abstract class Figura {
+import java.io.Serializable;
+
+public abstract class Figura implements Serializable {
 
 
     
@@ -38,6 +40,7 @@ public abstract class Figura {
     // Métodos abstractos que deben implementar las clases herederas
      public abstract void renderText(); // Para mostrar una descripción de la figura geométrica en texto
      public abstract void render(GraphicsContext gc); // Para dibujar en un contexto gráfico
+    public abstract String toString();
 
     
  

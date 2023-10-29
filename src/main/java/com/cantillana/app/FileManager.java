@@ -1,14 +1,8 @@
 package com.cantillana.app;
 
-import com.cantillana.Lienzo.Circulo;
-import com.cantillana.Lienzo.Escena;
-import com.cantillana.Lienzo.Linea;
-import com.cantillana.Lienzo.Rectangulo;
+import com.cantillana.Lienzo.*;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 class FileManager {
@@ -88,45 +82,47 @@ class FileManager {
 
 
     public Escena importFromObj(String file) {
-
-        /**
-         * **********************************************************************
-         * MÉTODO A IMPLEMENTAR. Lee el fichero e importa los objetos
-         * **********************************************************************
-         */
-        
         Escena escena = null;
+        try(ObjectInputStream oi = new ObjectInputStream(new FileInputStream(file))){
+            escena = (Escena) oi.readObject();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            System.out.println("Problema al importar la escena");
+        }
+
 
         return escena;
 
     }
 
-    public Boolean exportText(Escena escena, String file) {
+    public void exportText(Escena escena, String file) {
+        boolean out=false;
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(file))){
+            for(Figura f : escena.listaFiguras){
+                bw.write(f.toString());
+                bw.newLine();
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
-        /**
-         * *********************************************************
-         * MÉTODO A IMPLEMENTAR. Escribe el fichero de texto. Exporta las figuras a texto
-         * **********************************************************
-         */
-        // Comentar o eliminar estas líneas al implementar el método
-        boolean out = false;
-
-        return out;
 
     }
 
-    public Boolean exportObj(Escena escena, String file) {
-
-       /**
-         * *********************************************************
-         * MÉTODO A IMPLEMENTAR. Escribe el fichero de objetos. Exporta las figuras 
-         * **********************************************************
-         */
-        
-        boolean out = false;
-
-        return out;
-
+    public void exportList(Escena escena, String file) {
+        try(ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(file))){
+            os.writeObject(escena.listaFiguras);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void exportObj(Escena escena, String file) {
+        try(ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(file))){
+            os.writeObject(escena);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public Boolean exportSVG(Escena escena, String file) {

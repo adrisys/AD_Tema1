@@ -39,4 +39,16 @@ public class Linea extends Figura {
 
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("circulo");
+        sb.append(this.posicion.getX()).append(" ");
+        sb.append(this.posicion.getY()).append(" ");
+        sb.append(this.vector.getX()).append(" ");
+        sb.append(this.vector.getY()).append(" ");
+        sb.append(this.color);
+        return sb.toString();
+    }
+
 }

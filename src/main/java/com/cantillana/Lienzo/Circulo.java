@@ -44,5 +44,16 @@ public class Circulo extends Figura  {
         gc.fillOval(this.posicion.getX(), this.posicion.getY(), this.radio * 2, this.radio * 2);
     }
 
-   
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("circulo");
+        sb.append(this.posicion.getX()).append(" ");
+        sb.append(this.posicion.getY()).append(" ");
+        sb.append(this.getRadio()).append(" ");
+        sb.append(this.color);
+        return sb.toString();
+    }
+
+
 }

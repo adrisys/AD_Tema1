@@ -40,5 +40,17 @@ public class Rectangulo extends Figura  {
         
     }
 
-    
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("rectangulo");
+        sb.append(this.posicion.getX()).append(" ");
+        sb.append(this.posicion.getY()).append(" ");
+        sb.append(this.largo).append(" ");
+        sb.append(this.alto).append(" ");
+        sb.append(this.color);
+        return sb.toString();
+    }
+
+
 }
