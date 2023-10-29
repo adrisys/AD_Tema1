@@ -182,17 +182,16 @@ public class App extends Application {
 
                         switch (extension) {
                             case ".txt":
-                                if (fm.exportText(AppEscena, componentes[1]))
-                                    System.out.println(Colors.Bright_Cyan + "Ok. Exportación Correcta a TXT" + Colors.Reset);
-                                else
-                                    System.out.println(Colors.Bright_Red + "Error. Exportación Incorrecta" + Colors.Reset);
+                                fm.exportText(AppEscena, componentes[1]);
+                                    //System.out.println(Colors.Bright_Cyan + "Ok. Exportación Correcta a TXT" + Colors.Reset);
+
+                                    //System.out.println(Colors.Bright_Red + "Error. Exportación Incorrecta" + Colors.Reset);
                                 break;
 
                             case ".obj":
-                                if (fm.exportObj(AppEscena, componentes[1]))
-                                    System.out.println(Colors.Bright_Cyan + "Ok. Exportación Correcta a OBJ" + Colors.Reset);
-                                else
-                                    System.out.println(Colors.Bright_Red + "Error. Exportación Incorrecta" + Colors.Reset);
+                                fm.exportObj(AppEscena, componentes[1]);
+                                    //System.out.println(Colors.Bright_Cyan + "Ok. Exportación Correcta a OBJ" + Colors.Reset);
+                                    //System.out.println(Colors.Bright_Red + "Error. Exportación Incorrecta" + Colors.Reset);
                                 break;
 
                             case ".svg":
