@@ -3,6 +3,8 @@ package com.cantillana.Lienzo;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import org.apache.batik.svggen.SVGGraphics2D;
+import org.w3c.dom.Element;
 
 
 public class Rectangulo extends Figura  {
@@ -38,6 +40,20 @@ public class Rectangulo extends Figura  {
         gc.setFill(c);
         gc.fillRect(this.posicion.getX(), this.posicion.getY(), this.largo, this.alto);
         
+    }
+
+    public String toSVG() {
+        return "<rect x=\"" + posicion.getX() + "\" y=\"" + posicion.getY() + "\" width=\"" + this.largo+ "\" height=\"" + this.alto + "\" fill=\"" + color + "\" stroke=\"" + color  + "\" />";
+    }
+
+    @Override
+    public void exportSVG(SVGGraphics2D svgGenerator) {
+        Element rect = svgGenerator.getDOMFactory().createElement("rect");
+        rect.setAttribute("x", Double.toString(this.posicion.getX()));
+        rect.setAttribute("y", Double.toString(this.posicion.getY()));
+        rect.setAttribute("width", Double.toString(this.largo));
+        rect.setAttribute("height", Double.toString(this.alto));
+        svgGenerator.getTopLevelGroup().appendChild(rect);
     }
 
     @Override

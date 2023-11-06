@@ -3,7 +3,8 @@ package com.cantillana.Lienzo;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-
+import org.apache.batik.svggen.SVGGraphics2D;
+import org.w3c.dom.Element;
 
 
 public class Linea extends Figura {
@@ -37,6 +38,21 @@ public class Linea extends Figura {
         gc.setStroke(c);
         gc.strokeLine(this.posicion.getX(), this.posicion.getY(), this.vector.getX(), this.vector.getY());
 
+    }
+
+    public String toSVG() {
+        return "<line x1=\"" + this.posicion.getX()+ "\" y1=\"" + this.posicion.getY() + "\" x2=\""
+                + this.vector.getX() + "\" y2=\"" + this.vector.getY() + "\" stroke=\"" + color + "\" />";
+    }
+
+    @Override
+    public void exportSVG(SVGGraphics2D svgGenerator) {
+        Element line = svgGenerator.getDOMFactory().createElement("line");
+        line.setAttribute("x1", Double.toString(this.posicion.getX()));
+        line.setAttribute("y1", Double.toString(this.posicion.getY()));
+        line.setAttribute("x2", Double.toString(this.vector.getX()));
+        line.setAttribute("y2", Double.toString(this.vector.getY()));
+        svgGenerator.getTopLevelGroup().appendChild(line);
     }
 
     @Override

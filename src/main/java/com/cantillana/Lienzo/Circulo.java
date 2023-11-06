@@ -3,7 +3,8 @@ package com.cantillana.Lienzo;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-
+import org.apache.batik.svggen.SVGGraphics2D;
+import org.w3c.dom.Element;
 
 
 public class Circulo extends Figura  {
@@ -44,6 +45,8 @@ public class Circulo extends Figura  {
         gc.fillOval(this.posicion.getX(), this.posicion.getY(), this.radio * 2, this.radio * 2);
     }
 
+
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -53,6 +56,20 @@ public class Circulo extends Figura  {
         sb.append(this.getRadio()).append(" ");
         sb.append(this.color);
         return sb.toString();
+    }
+
+    @Override
+    public String toSVG() {
+        return "<circle cx=\"" + posicion.getX() + "\" cy=\"" + posicion.getY() + "\" r=\"" + radio +"/>";
+    }
+
+    @Override
+    public void exportSVG(SVGGraphics2D svgGenerator) {
+        Element circle = svgGenerator.getDOMFactory().createElement("circle");
+        circle.setAttribute("cx", Double.toString(this.posicion.getX()));
+        circle.setAttribute("cy", Double.toString(this.posicion.getY()));
+        circle.setAttribute("r", Double.toString(radio));
+        svgGenerator.getTopLevelGroup().appendChild(circle);
     }
 
 

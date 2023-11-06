@@ -3,6 +3,7 @@ package com.cantillana.Lienzo;
 // Librerias para poder dibujar
 
 import javafx.scene.canvas.GraphicsContext;
+import org.apache.batik.svggen.SVGGraphics2D;
 
 import java.io.Serializable;
 
@@ -41,6 +42,8 @@ public abstract class Figura implements Serializable {
      public abstract void renderText(); // Para mostrar una descripción de la figura geométrica en texto
      public abstract void render(GraphicsContext gc); // Para dibujar en un contexto gráfico
     public abstract String toString();
+    public abstract String toSVG();
+    public abstract void exportSVG(SVGGraphics2D svgGenerator);
 
     
  

@@ -57,8 +57,7 @@ public class Escena implements Serializable {
         /*Hay que tener en cuenta si se trata de un circulo*/
         boolean figuraValida=false;
 
-        if(figura instanceof Circulo){
-            Circulo circ = (Circulo) figura;
+        if(figura instanceof Circulo circ){
             boolean cabeEnX = (circ.posicion.getX()-circ.getRadio() >=0 && circ.posicion.getX()+circ.getRadio()<=this.tamX);
             boolean cabeEnY = (circ.posicion.getY() - circ.getRadio() >= 0) && (circ.posicion.getY() + circ.getRadio() <= this.tamY);
             if(cabeEnX && cabeEnY) figuraValida=true;
@@ -100,7 +99,7 @@ public class Escena implements Serializable {
             f.render(gc);
         }
         
-    };
+    }
 
     
 }

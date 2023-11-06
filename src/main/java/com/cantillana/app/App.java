@@ -195,10 +195,9 @@ public class App extends Application {
                                 break;
 
                             case ".svg":
-                                if (fm.exportSVG(AppEscena, componentes[1]))
-                                    System.out.println(Colors.Bright_Cyan + "Ok. Exportación Correcta a SVG" + Colors.Reset);
-                                else
-                                    System.out.println(Colors.Bright_Red + "Error. Exportació Incorrecta" + Colors.Reset);
+                                 fm.exportToSVG(AppEscena, componentes[1]);
+                                    //System.out.println(Colors.Bright_Cyan + "Ok. Exportación Correcta a SVG" + Colors.Reset);
+                                    //System.out.println(Colors.Bright_Red + "Error. Exportació Incorrecta" + Colors.Reset);
                                 break;
 
                             case "json":

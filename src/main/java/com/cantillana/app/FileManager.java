@@ -1,9 +1,13 @@
 package com.cantillana.app;
 
 import com.cantillana.Lienzo.*;
-
 import java.io.*;
+import java.util.List;
 import java.util.Scanner;
+import org.apache.batik.dom.GenericDOMImplementation;
+import org.apache.batik.svggen.SVGGraphics2D;
+import org.w3c.dom.DOMImplementation;
+import org.w3c.dom.Document;
 
 class FileManager {
 
@@ -125,29 +129,33 @@ class FileManager {
         }
     }
 
-    public Boolean exportSVG(Escena escena, String file) {
-        /**
-         * **********************************************************
-         * MÉTODO A IMPLEMENTAR. Exporta la figura a un SVG (XML) entendible por Inkscape
-         * **********************************************************
-         */
-        /*
-            <?xmlversion="1.0"encoding="UTF-8"standalone="no"?> 2 <svgheight="500"width="500">
-            <rect fill="#ccccee" height="480" width="480" x="10" y="10"/>
-            <circle cx="250" cy="250" fill="#aaaaaa" r="100"/>
-            <line stroke="#aaaaaa" stroke-width="3" x1="50" x2="450" y1="250" y2="250"/>
-            <line stroke="#aaaaaa" stroke-width="3" x1="50" x2="50" y1="50" y2="
-            450"/>
-            <line stroke="#aaaaaa" stroke-width="3" x1="450" x2="450" y1="40" y2= "450"/>
-            </svg>
-         */
 
-    	// Comentar o eliminar estas líneas al implementar el método
-        boolean out = false;
 
-        return out;
+    public void exportToSVG(Escena escena, String filename) {
+        String svgNS = "http://www.w3.org/2000/svg";
+        DOMImplementation domImpl = GenericDOMImplementation.getDOMImplementation();
+        Document document = domImpl.createDocument(svgNS, "svg", null);
 
+        // Crear un Graphics2D para el documento SVG
+        SVGGraphics2D svgGenerator = new SVGGraphics2D(document);
+
+        // Exporta cada figura
+        for (Figura figura : escena.listaFiguras) {
+            figura.exportSVG(svgGenerator);
+        }
+
+        // Guardar el documento SVG en un archivo
+        try {
+            File svgFile = new File(filename);
+            FileWriter fileWriter = new FileWriter(svgFile);
+            Writer out = new BufferedWriter(fileWriter);
+            svgGenerator.stream(out, true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
+
+
 
     public Boolean exportJSON(Escena escena, String filename) {
 
