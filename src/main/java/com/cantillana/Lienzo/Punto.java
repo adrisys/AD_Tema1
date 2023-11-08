@@ -3,36 +3,38 @@ package com.cantillana.Lienzo;
 import java.io.Serializable;
 
 
-public class Punto implements Serializable{
+public class Punto implements Serializable {
     // Clase que representa una ubicación en la escena
     private int x;
     private int y;
 
-    Punto(){
+    Punto() {
         //  Constructor
-        this.x=0;
-        this.y=0;
+        this.x = 0;
+        this.y = 0;
     }
 
-    Punto (int x, int y){
-        this.x=x;
-        this.y=y;
+    Punto(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
 
     //  getters
-    public int getX(){
+    public int getX() {
         return this.x;
     }
 
-    public int getY(){
+    public int getY() {
         return this.y;
     }
 
     //  setter
-    public void set(int x, int y){
-        this.x=x;
-        this.y=y;
-    };
+    public void set(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    ;
 
 }
 

@@ -31,7 +31,7 @@ public class App extends Application {
             // Si vienen en los argumentos
             width = Integer.parseInt(args[0]);
             height = Integer.parseInt(args[1]);
-            ;
+
         } catch (Exception e) {
             // Sino, por defecto 800x600
             width = 800;
@@ -73,7 +73,7 @@ public class App extends Application {
                     } catch (Exception e) {
                         System.out.println("\u001B[31m Error de sintaxis. La sintaxis correcta ss:\nccirculo x y radio color \u001B[0m");
                     }
-                    ;
+
                     break;
 
                 case "rectangulo":
@@ -94,7 +94,7 @@ public class App extends Application {
                     } catch (Exception e) {
                         System.out.println("\u001B[31m Error de sintaxis. La sintaxis correcta és:\nrectangulo x y largo ancho color \u001B[0m");
                     }
-                    ;
+
                     break;
 
                 case "linea":
@@ -115,7 +115,7 @@ public class App extends Application {
                     } catch (Exception e) {
                         System.out.println("\u001B[31m Error de sintaxis. La sintaxis correcta es:\nlinia x1 y1 x2 y2 color \u001B[0m");
                     }
-                    ;
+
                     break;
 
                 case "dimensiones":
@@ -183,28 +183,26 @@ public class App extends Application {
                         switch (extension) {
                             case ".txt":
                                 fm.exportText(AppEscena, componentes[1]);
-                                    //System.out.println(Colors.Bright_Cyan + "Ok. Exportación Correcta a TXT" + Colors.Reset);
-
-                                    //System.out.println(Colors.Bright_Red + "Error. Exportación Incorrecta" + Colors.Reset);
+                                //System.out.println(Colors.Bright_Cyan + "Ok. Exportación Correcta a TXT" + Colors.Reset);
+                                //System.out.println(Colors.Bright_Red + "Error. Exportación Incorrecta" + Colors.Reset);
                                 break;
 
                             case ".obj":
                                 fm.exportObj(AppEscena, componentes[1]);
-                                    //System.out.println(Colors.Bright_Cyan + "Ok. Exportación Correcta a OBJ" + Colors.Reset);
-                                    //System.out.println(Colors.Bright_Red + "Error. Exportación Incorrecta" + Colors.Reset);
+                                //System.out.println(Colors.Bright_Cyan + "Ok. Exportación Correcta a OBJ" + Colors.Reset);
+                                //System.out.println(Colors.Bright_Red + "Error. Exportación Incorrecta" + Colors.Reset);
                                 break;
 
                             case ".svg":
-                                 fm.exportToSVG(AppEscena, componentes[1]);
-                                    //System.out.println(Colors.Bright_Cyan + "Ok. Exportación Correcta a SVG" + Colors.Reset);
-                                    //System.out.println(Colors.Bright_Red + "Error. Exportació Incorrecta" + Colors.Reset);
+                                fm.exportToSVG(AppEscena, componentes[1]);
+                                //System.out.println(Colors.Bright_Cyan + "Ok. Exportación Correcta a SVG" + Colors.Reset);
+                                //System.out.println(Colors.Bright_Red + "Error. Exportació Incorrecta" + Colors.Reset);
                                 break;
 
                             case "json":
-                                if (fm.exportJSON(AppEscena, componentes[1]))
-                                    System.out.println(Colors.Bright_Cyan + "Ok. Exportación Correcta a JSON" + Colors.Reset);
-                                else
-                                    System.out.println(Colors.Bright_Red + "Error. Exportación Incorrecta" + Colors.Reset);
+                                fm.exportJSON(AppEscena, componentes[1]);
+//                                    System.out.println(Colors.Bright_Cyan + "Ok. Exportación Correcta a JSON" + Colors.Reset);
+//                                    System.out.println(Colors.Bright_Red + "Error. Exportación Incorrecta" + Colors.Reset);
                                 break;
 
                             default:
