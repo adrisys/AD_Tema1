@@ -1,0 +1,5 @@
+rectangulo 10 10 480 480 #ccccee
+circulo 250 250 100 #aaaaaa
+circulo 50 250 450 250 #aaaaaa
+circulo 50 50 50 450 #aaaaaa
+circulo 450 40 450 450 #aaaaaa

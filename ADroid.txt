@@ -1,0 +1,18 @@
+dimensiones 320 300
+circulo 166 105 26 #94c147
+rectangulo 137 108 58 58 #ffffff
+rectangulo 139 111 52 52 #94c147
+circulo 157 96 3 #ffffff
+circulo 173 96 3 #ffffff
+rectangulo 126 115 11 31 #94c147
+circulo 132 115 5 #94c147
+circulo 132 147 5 #94c147
+rectangulo 195 116 11 31 #94c147
+circulo 201 115 5 #94c147
+circulo 200 147 5 #94c147
+rectangulo 174 150 11 31 #94c147
+circulo 180 181 5 #94c147
+rectangulo 146 150 11 31 #94c147
+circulo 151 181 5 #94c147
+linea 142 75 164 93 #94c147
+linea 186 75 164 93 #94c147
